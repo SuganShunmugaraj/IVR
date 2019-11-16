@@ -1,0 +1,11 @@
+.lr_header_navigation_main_wrapper.bannersection {
+    position: absolute
+}
+
+:host .lr_header_navigation_main_wrapper {
+    background: none;
+}
+
+:host-context(.gr__localhost) .lr_header_navigation_main_wrapper {
+    background: none;
+}

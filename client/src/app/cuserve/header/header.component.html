@@ -1,0 +1,51 @@
+<header>
+    <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12 head-base">
+        <div class="container">
+            <div class="head-inner col-md-12 col-sm-12 col-xs-12  col-lg-12">
+                <nav *ngIf="!userLogged" class="navbar navbar-default menu-base login-menu">
+                    <div class="container-fluid">
+                        <a routerLink="/"><img src="../../../assets/images/logo.png" alt="logo"></a>
+                    </div>
+                </nav>
+                <nav *ngIf="userLogged" class="navbar navbar-default menu-base front-end">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                          <span class="sr-only">Toggle navigation</span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                        </button>
+                            <a class="navbar-brand" routerLink="/"><img src="assets/images/logo.png" alt="logo"></a>
+                        </div>
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="list-inline pull-right account-head-ul">
+                                <li> <a routerLink="/dashboard/createivr/{{userinfo._id}}" class="themebtn">CREATE IVR</a> </li>
+                                <li> <a routerLink="/dashboard/" class="themebtn">DASHBOARD</a> </li>
+                                <li role="presentation" class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <span class="account-img">
+                                            <img *ngIf="userinfo.companyLogo; else userinitial" src="{{userinfo.companyLogo}}" alt="Accountcurserve">
+                                       <ng-template #userinitial>
+                                           <label class="initial">{{userinfo.name | slice:0:1}}  </label>
+                                       </ng-template>
+                                        </span>
+                                        <span class="drop-icon"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a routerLink="/dashboard/ivr/{{userinfo?._id}}">My IVR</a></li>
+                                        <li><a routerLink="/dashboard/account/{{userinfo?._id}}">My Account</a></li>
+                                        <li><a routerLink="/dashboard/billing/{{userinfo?._id}}">Billing</a>
+                                            <span *ngIf="billingLength" class="notification-icon"></span>
+                                        </li>
+                                        <li><a (click)="signout()" class="logout-link"><span class="logout-icon"><img src="assets/images/logout-icon.png" alt="logout"></span>LOGOUT</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>

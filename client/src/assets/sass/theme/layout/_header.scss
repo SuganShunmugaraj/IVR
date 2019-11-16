@@ -1,0 +1,87 @@
+.head-base {
+    @include box-shadow(0, 3px, 7px, rgba(0, 0, 0, 0.07));
+    .head-inner {
+        padding: 0;
+        .navbar-default {
+            background-color: transparent;
+            border-color: transparent;
+            margin: 0;
+            .navbar-nav {
+                a {
+                    font: 16px $font-semibold;
+                    border: none;
+                    padding: 20px 25px;
+                    cursor: pointer;
+                }
+            }
+        }
+        .navbar-default .navbar-nav>.active>a,
+        .navbar-default .navbar-nav>.active>a:focus,
+        .navbar-default .navbar-nav>.active>a:hover {
+            color: #e6272b;
+            background-color: transparent;
+        }
+        .nav-tabs>li.active>a,
+        .nav-tabs>li.active>a:focus,
+        .nav-tabs>li.active>a:hover {
+            color: #e6272b;
+            border: none;
+            border-bottom-color: transparent;
+        }
+        .nav-tabs>li.active>a {
+            border-bottom: 3px solid $themebg !important;
+        }
+        .nav-tabs>li>a:hover {
+            border-color: transparent;
+            border: none;
+        }
+        .nav-tabs {
+            border: none;
+            margin-left: 35px;
+        }
+        .navbar-default .navbar-collapse,
+        .navbar-default .navbar-form {
+            border-color: #e7e7e7;
+            padding: 0;
+        }
+        .navbar-brand {
+            padding: 19px 15px;
+        }
+    }
+    .account-head-ul {
+        margin: 0;
+        padding-top: 12px;
+    }
+    .dropdown {
+        li {
+            position: relative;
+            .notification-icon {
+                top: 4px;
+                right: 49%;
+            }
+        }
+        a {
+            text-decoration: none;
+            font: 14px $font-semibold;
+            color: #000;
+            padding: 5px 22px;
+        }
+        .logout-link {
+            color: $themebg;
+            cursor: pointer;
+            .logout-icon {
+                margin-right: 15px;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.front-end {
+    .account-head-ul {
+        padding: 13px 0px;
+        >li {
+            float: left;
+        }
+    }
+}

@@ -1,0 +1,143 @@
+.login-base {
+    background: url(../images/login-bg.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.login-menu {
+    a {
+        display: inline-block;
+        padding: 15px 0 12px;
+    }
+}
+
+.login-inner {
+    .login-text {
+        margin: 160px 0;
+        h2 {
+            font: 50px $font-bold;
+            color: #ffffff;
+            line-height: 64px;
+        }
+        h3 {
+            font: 30px $font-regular;
+            color: #ffffff;
+            line-height: 38px;
+        }
+        span {
+            font: 14px $font-regular;
+            color: #ffffff;
+        }
+        .themebtn {
+            padding: 11px 49px;
+        }
+        ul {
+            li {
+                padding: 0 15px;
+                &:first-child {
+                    padding-left: 0;
+                }
+            }
+        }
+    }
+}
+
+.login-title {
+    font: 28px $font-regular;
+    text-align: center;
+    color: #000;
+}
+
+.login-modal {
+    .input-container-base {
+        margin-bottom: 10px;
+    }
+}
+
+.login-btn-container {
+    .themebtn {
+        width: 100%;
+    }
+}
+
+.forgot-container {
+    margin-top: 20px;
+    a {
+        font: 14px $font-semibold;
+        display: inline-block;
+        color: #000;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+.login-footer {
+    border-top: 1px solid #ddd;
+    margin-top: 20px;
+    padding: 20px 0;
+    p {
+        float: left;
+        font: 14px $font-semibold;
+        margin-top: 11px;
+        color: #000;
+    }
+    .themebtn1 {
+        float: right;
+    }
+}
+
+.agree-terms-login {
+    .control {
+        font-size: 12px !important;
+    }
+    a {
+        font-size: 12px;
+        color: $themebg;
+    }
+}
+
+.invalid-feedback {
+    float: left;
+    width: 100%;
+    font-size: 12px;
+    color: red;
+    margin: 5px 0 0 16px;
+}
+
+.forgot-psw {
+    padding-bottom: 34px;
+}
+
+.verify-modal {
+    .login-title {
+        text-align: left;
+        span {
+            margin-right: 20px;
+        }
+    }
+    .modal-body {
+        padding: 20px !important;
+    }
+    .modal-cont {
+        border-top: 1px solid #ddd;
+        p {
+            font: 16px $font-regular;
+            color: #333333;
+            margin-top: 20px;
+        }
+    }
+}
+
+@media only screen and (min-width: 767px) {
+    .login-modal {
+        .modal-dialog {
+            width: 500px;
+        }
+    }
+    .verify-modal {
+        .modal-dialog {
+            width: 60%;
+        }
+    }
+}

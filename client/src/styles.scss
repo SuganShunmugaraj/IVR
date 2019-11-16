@@ -1,0 +1,107 @@
+/* You can add global styles to this file, and also import other style files */
+
+.removescroll {
+    overflow: hidden;
+}
+
+body .ui-table .ui-table-tbody>tr>td {
+    text-transform: capitalize
+}
+
+.cursor,
+.custom-red {
+    cursor: pointer;
+}
+
+app-cuserve {
+    // height: 100%;
+    width: 100%;
+    float: left;
+    min-height: 100%;
+}
+
+@media(min-width: 1400px) {
+    app-cuserve {
+        height: 100%;
+    }
+    user-landing,
+    app-admin {
+        min-height: calc(100% - 180px);
+        float: left;
+        width: 100%;
+    }
+}
+
+app-admin app-footer {
+    display: none;
+}
+
+app-home {
+    width: 100%;
+    float: left;
+    height: calc(100% - 160px);
+    min-height: calc(100% - 160px);
+    >section {
+        width: 100%;
+        float: left;
+        min-height: 100%;
+        height: 100%;
+    }
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+.login-base {
+    height: 100%;
+}
+
+p-toast {
+    position: relative;
+    z-index: 9999;
+}
+
+.custom-orange {
+    color: orange
+}
+
+a {
+    cursor: pointer;
+}
+
+.bold {
+    font-weight: bold
+}
+
+.adminbody app-calllog {
+    .container {
+        width: 100%;
+        padding: 0;
+    }
+    .section-base {
+        padding: 0;
+    }
+}
+
+app-loader {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background: #0003;
+    z-index: 999;
+}
+
+body .ui-button[ng-reflect-label="Yes"],
+body .ui-button[ng-reflect-label="Yes"]:hover,
+body .ui-button[ng-reflect-label="Yes"]:focus {
+    background: #2ec26a;
+    /* background: linear-gradient(to right, #036303, green); */
+    border: 1px solid #2ec26a;
+}
+
+.margin0 {
+    margin: 0
+}

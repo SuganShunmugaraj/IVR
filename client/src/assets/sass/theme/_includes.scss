@@ -1,0 +1,169 @@
+/*----- mixins----------------------------------------------- */
+
+$ltr: left;
+$rtl: right;
+$ctr: center;
+$theme:#e6272b;
+
+/*----- mixins----------------------------------------------- */
+
+@mixin float($value) {
+    float: $ltr;
+    width: 100%;
+    text-align: $value;
+}
+
+@mixin display {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+@mixin gradebtn {
+    background: #f84074;
+    background: -moz-linear-gradient(-45deg, #f84074 0%, #fc584b 100%);
+    background: -webkit-linear-gradient(-45deg, #f84074 0%, #fc584b 100%);
+    background: linear-gradient(135deg, #f84074 0%, #fc584b 100%);
+    color: #fff;
+}
+
+@mixin gradsucess {
+    background: #00bc93;
+    /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #00bc93 0%, #87baae 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #00bc93 0%, #87baae 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #00bc93 0%, #87baae 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+
+/*----- button mixins----------------------------------------------- */
+
+@mixin appearance($none) {
+    -webkit-appearance: $none;
+    -moz-appearance: $none;
+    -ms-appearance: $none;
+    appearance: $none;
+}
+
+@mixin transition-duration($value) {
+    -webkit-transition-duration: $value;
+    -moz-transition-duration: $value;
+    -ms-transition-duration: $value;
+    transition-duration: $value;
+}
+
+@mixin transition-delay($value) {
+    -webkit-transition-delay: $value;
+    -moz-transition-delay: $value;
+    -ms-transition-delay: $value;
+    transition-delay: $value;
+}
+
+
+/*------Button----------------------------------------*/
+
+.btn {
+    &.themeBtn {}
+}
+
+.themeBtn {
+    border: none
+}
+
+
+/*------Button----------------------------------------*/
+
+
+/*----- mixins-------------------------------------- */
+
+a:active {
+    outline: none;
+    text-decoration: none;
+}
+
+a:focus {
+    outline: none;
+    text-decoration: none;
+}
+
+.center {
+    text-align: center;
+}
+
+.right {
+    float: right;
+}
+
+.left {
+    float: $ltr;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.relative {
+    position: relative;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+.pad0 {
+    padding: 0
+}
+
+.alignright {
+    text-align: $rtl
+}
+
+.noborder {
+    border: none !important
+}
+
+
+/*----- button mixins----------------------------------------------- */
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("../images/caret.png");
+    background-position: 93% center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    border: 1px solid #ccc;
+}
+
+a:hover {
+    color: $theme
+}
+
+input {
+    outline: none
+}
+
+button {
+    outline: none
+}
+
+select {
+    outline: none
+}
+
+
+/*----- mixins----------------------------------------------- */
+
+
+/*----- cheome safri only----------------------------------------------- */
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {}

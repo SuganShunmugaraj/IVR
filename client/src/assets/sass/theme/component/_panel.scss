@@ -1,0 +1,50 @@
+body .ui-panel .ui-panel-titlebar {
+    border: 1px solid #c8c8c84a;
+    padding: 10px 20px;
+    font-size: 17px;
+    background-color: #fff;
+    color: #424242;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+body .ui-panel {
+    padding: 0;
+    border-radius: 0;
+    border: 0 none;
+    box-shadow: 0 0 11px 0 #cccccc69;
+}
+
+body .ui-panel .ui-panel-content {
+    border: 1px solid #c8c8c866;
+    background-color: #ffffff;
+    color: #424242;
+    padding: 15px 20px;
+    border-top: 0 none;
+    min-height: 300px;
+    border-radius: 0;
+}
+
+.formsubhead {
+    display: inline-block;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    padding: 15px 0 4px 0px;
+    font-size: 18px;
+    margin: 0 0 20px 0;
+}
+
+.panelfooter {
+    background: #fff;
+    float: $ltr;
+    box-shadow: 0 0 11px 0 #cccccc69;
+    width: 99%;
+    padding: 15px;
+    margin: 10px 6px 0 6px;
+}
+
+p-header a:not([href]):not([tabindex]) {
+    color: #fff
+}

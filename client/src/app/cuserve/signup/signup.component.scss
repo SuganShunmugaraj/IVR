@@ -1,0 +1,49 @@
+.modal {
+    display: block;
+    opacity: 1;
+    z-index: 3;
+}
+
+.disabled {
+    pointer-events: none;
+    opacity: .5;
+}
+
+p-dropdown.form-control {}
+
+.formtit {
+    float: left;
+    width: 100%;
+    font-weight: normal;
+}
+
+.iconclose {
+    cursor: pointer;
+    position: fixed;
+    right: 40px;
+    top: 10px;
+    z-index: 99;
+    color: #fff;
+    font-size: 30px;
+}
+
+.verificationtext {
+    float: left;
+    width: 100%;
+    padding: 40px;
+    font-size: 19px;
+}
+
+.imagePreview {
+    float: left;
+    width: 100%;
+}
+
+.arrowstyle {
+    float: left;
+    margin: 0 0 0 10px;
+}
+
+.mar0 {
+    margin: 0;
+}

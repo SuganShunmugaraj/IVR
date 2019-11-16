@@ -1,0 +1,186 @@
+$theme:#e6272b;
+body {
+    font-family: "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+a {
+    color: inherit;
+    &::hover {
+        text-decoration: none;
+        color: inherit
+    }
+    &:focus,
+    &:active {
+        outline: none
+    }
+}
+
+a.disabled {
+    opacity: .5;
+    pointer-events: none;
+}
+
+app-admin {
+    @include float($ltr);
+}
+
+.left {
+    float: $ltr;
+}
+
+.right {
+    float: $rtl;
+}
+
+.admin-panel-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -5px;
+    margin-left: -5px;
+    .col-md-6 {
+        padding: 0 5px;
+    }
+}
+
+.fullform {
+    @include float($ltr);
+    p-panel.col-md-6 {
+        float: $ltr;
+    }
+}
+
+.buttonholder {
+    float: left;
+    margin: 0 0 0 10px;
+    button {
+        padding: 5px 20px;
+    }
+}
+
+app-generatebills .close {
+    float: right;
+    font-size: 41px;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-shadow: none;
+    filter: alpha(opacity=20);
+    opacity: 1;
+    margin: 20px 40px 0 0;
+    &:hover {
+        color: #fff;
+    }
+}
+
+p-fileupload {
+    float: $ltr;
+}
+
+.removescroll {
+    overflow: hidden;
+}
+
+.ng-touched.ng-invalid {
+    border-color: red;
+}
+
+.main-title {
+    margin-top: 0;
+}
+
+html,
+body,
+app-root {
+    height: 100%;
+    float: left;
+    min-height: 100%;
+    width: 100%;
+}
+
+app-login {
+    height: 100%;
+    float: left;
+    min-height: 100%;
+    width: 100%;
+    background: #c31432;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #240b36, #c31432);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #240b36, #c31432);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+p-paginator {
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+}
+
+.ui-table .ui-paginator-bottom {
+    border-top: 0 none;
+    float: none;
+    display: inline-block;
+}
+
+body .ui-paginator .ui-paginator-first,
+body .ui-paginator .ui-paginator-prev,
+body .ui-paginator .ui-paginator-next,
+body .ui-paginator .ui-paginator-last,
+body .ui-paginator .ui-paginator-pages .ui-paginator-page {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 0 7px;
+}
+
+body .ui-paginator .ui-paginator-pages .ui-paginator-page.ui-state-active {
+    border: 1px solid #e6272b;
+    border-radius: 4px;
+    margin: 0 7px;
+    background: none;
+    color: #e6272b;
+}
+
+user-landing {
+    ul.nav.themetab.nav-tabs,
+    .breadcrumb-base {
+        display: none;
+    }
+    app-account .main-title,
+    .billhist-generatebill {
+        display: none
+    }
+}
+
+app-admin {
+    .paybillbutton {
+        display: none !important;
+    }
+}
+
+div.theme-table {
+    padding: 0;
+    box-shadow: none;
+}
+
+.navbar-nav>li {
+    &:focus {
+        outline: none
+    }
+}
+
+.overlay {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: #000000bd;
+}
+
+body .ui-dialog {
+    width: 440px;
+}
+
+.modalopen {
+    overflow: hidden;
+}

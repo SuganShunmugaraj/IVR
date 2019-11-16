@@ -1,0 +1,57 @@
+.btn {
+    background: #f5f5f5;
+    color: #444;
+    border: 1px solid #f5f5f5;
+    border: 1px solid #ccc;
+    padding: 7px 20px;
+    font-size: 14px;
+    margin: 0 2px;
+    &:focus,
+    &:active {
+        box-shadow: none;
+        outline: none
+    }
+}
+
+.btnholder {
+    margin: 0 -2px;
+}
+
+button[disabled] {
+    opacity: .6;
+}
+
+.btn.btn-primary {
+    border: 1px solid;
+    color: #fff;
+}
+
+body .ui-button {
+    background: linear-gradient(to right, #e53935, #e35d5b);
+    border: 1px solid #e35553;
+}
+
+.icon-stacked .btn {
+    padding: 1px 5px;
+    border-radius: 3px;
+    border: none;
+    i {
+        color: #fff
+    }
+    &.delete {
+        background: #3d566e;
+    }
+    &.view {
+        background: #e53935;
+    }
+    &.edit {
+        background: #2980b9;
+    }
+    &.account {
+        background: #16a085;
+    }
+}
+
+.btn-round {}
+
+.btn-theme {}

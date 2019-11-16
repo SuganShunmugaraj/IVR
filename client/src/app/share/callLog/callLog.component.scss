@@ -1,0 +1,51 @@
+.modal {
+    opacity: 1;
+}
+
+.login-modal .modal-dialog {
+    width: 1130px;
+    td {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+.mdi.mdi-close {
+    float: right;
+    color: #fff;
+    font-size: 50px;
+    margin: 0 20px 0 0;
+    position: fixed;
+    right: 20px;
+}
+
+.modal-content {
+    height: 500px;
+    overflow: auto;
+}
+
+.baseingo {
+    float: left;
+    width: 100%;
+    li {
+        float: left;
+        width: 100%;
+        padding: 4px;
+        span {
+            float: left;
+            width: 50%;
+        }
+    }
+}
+
+.martop {
+    margin: 40px 0 0 0;
+}
+
+.width60 {
+    width: 60px;
+}
+
+.width360 {
+    width: 360px;
+}

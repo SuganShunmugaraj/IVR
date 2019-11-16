@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="login-container">
+        <div class="inner-container">
+            <div id="output"></div>
+            <div class="avatar"></div>
+            <div class="form-box">
+                <form>
+                    <input type="text" name="email" placeholder="Email" [(ngModel)]="credentials.email">
+                    <input type="password" name="password" placeholder="Password" [(ngModel)]="credentials.password">
+                    <button class="btn btn-info btn-block login" type="submit" (click)="login()">Login</button>
+                    <p *ngIf="errorMessage" class="info-error"> {{errorMessage}}</p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

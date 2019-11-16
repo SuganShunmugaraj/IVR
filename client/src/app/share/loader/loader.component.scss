@@ -1,0 +1,137 @@
+/*
+ * This file has been created by Ergosign GmbH - All rights reserved - http://www.ergosign.de
+ *
+ *
+ * This file and the code contained in it are subject to the agreed contractual terms and conditions,
+ * in particular with regard to resale and publication.
+ */
+
+
+/*
+Loading Indicator
+
+Loading Indicator description text
+
+Markup: loading-indicator.hbs
+
+wrapper-classes: min-height-250
+
+Styleguide controls.loading-indicator
+*/
+
+$animation-multiplier: 1;
+$loading-indicator-bar-width : 6px * $animation-multiplier;
+$loading-indicator-bar-margin : 5px * $animation-multiplier;
+$loading-indicator-bar-minheight : 12px * $animation-multiplier;
+$loading-indicator-bar-maxheight : 30px * $animation-multiplier;
+$loading-indicator-wrapper-width : 80px * $animation-multiplier;
+$loading-delay : 0s;
+$loading-duration : 1.5s;
+$loading-iteration : 150;
+$loading-duration-child : 120ms;
+$loading-animationfunction: ease-in-out;
+workshop-loader {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    // z-index: map_get($zIndexLayer,'LOADING_INDICATOR');
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    &.dark {
+        background: rgba(#ccc, .75);
+    }
+    &.light {
+        background: rgba(#fff, .75);
+    }
+    .loading-log {
+        display: table;
+        min-width: 200px;
+        font-size: 9px;
+        color: #777;
+        transform: translateY(100%);
+        &-item {
+            padding: 0;
+            margin: 0;
+            margin-bottom: 2px;
+            display: flex;
+            &--text {
+                flex: 1;
+                white-space: nowrap;
+            }
+            &--blank {
+                flex: 0 1 auto;
+                width: 100%;
+                display: inline-block;
+                border-bottom: 1px dotted #ddd;
+            }
+        }
+    }
+}
+
+.loading-indicator {
+    position: absolute;
+    padding: $loading-indicator-bar-minheight;
+    height: $loading-indicator-bar-maxheight*2;
+    width: $loading-indicator-wrapper-width;
+    margin: auto;
+    text-align: center;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    &-bar {
+        top: 0;
+        position: relative;
+        float: left;
+        background: #e6272b;
+        height: $loading-indicator-bar-minheight;
+        width: $loading-indicator-bar-width;
+        margin-right: $loading-indicator-bar-margin;
+        margin-top: $loading-indicator-bar-minheight;
+        transform: skew(-35deg, 0);
+        transform-origin: center;
+        animation-name: loadinganimation;
+        animation-duration: $loading-duration;
+        animation-delay: $loading-delay;
+        animation-iteration-count: $loading-iteration;
+        animation-timing-function: $loading-animationfunction;
+        &:nth-child(2) {
+            animation-delay: $loading-delay + $loading-duration-child;
+        }
+        &:nth-child(3) {
+            animation-delay: $loading-delay + $loading-duration-child * 2;
+        }
+        &:nth-child(4) {
+            animation-delay: $loading-delay + $loading-duration-child * 3;
+        }
+        &:nth-child(5) {
+            animation-delay: $loading-delay + $loading-duration-child * 4;
+        }
+    }
+}
+
+
+/* The animation code */
+
+@keyframes loadinganimation {
+    0% {
+        height: $loading-indicator-bar-minheight;
+        top: 0;
+    }
+    20% {
+        height: $loading-indicator-bar-maxheight;
+        top: -((($loading-indicator-bar-maxheight - $loading-indicator-bar-minheight) / 2));
+    }
+    60% {
+        height: $loading-indicator-bar-minheight;
+        top: 0;
+    }
+    100% {
+        height: $loading-indicator-bar-minheight;
+        top: 0;
+    }
+}

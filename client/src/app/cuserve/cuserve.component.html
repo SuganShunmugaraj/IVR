@@ -1,0 +1,6 @@
+<page-header [userLogged]='isLogged' [billingLength]="billingLength" [logo]="logo"></page-header>
+<router-outlet></router-outlet>
+<app-footer></app-footer>
+<app-signup [view]="userLogin"></app-signup>
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+<p-toast class="toast" [style]="{marginTop: '80px'}"></p-toast>

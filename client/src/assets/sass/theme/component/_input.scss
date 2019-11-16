@@ -1,0 +1,65 @@
+.form-control {
+    height: calc(1.8rem + 2px);
+    border-radius: 0;
+    font-size: 14px;
+    &:focus {
+        outline: none;
+        box-shadow: none;
+    }
+}
+
+.form-group {
+    margin-bottom: 5px;
+}
+
+p-dropdown {
+    float: left;
+    width: 100%;
+}
+
+body .ui-dropdown {
+    border: 1px solid #ced4da;
+    height: calc(1.8rem + 2px);
+    border-radius: 0;
+    font-size: 14px;
+    float: left;
+    width: 100% !important;
+    padding: 3px 10px;
+}
+
+body .ui-dropdown:not(.ui-state-disabled):hover {
+    border: 1px solid #ced4da;
+}
+
+body .ui-inputtext {
+    padding: 0
+}
+
+p-checkbox {
+    margin: 0 10px 0 0;
+}
+
+body .ui-dropdown {
+    border: none;
+}
+
+body .ui-dropdown:not(.ui-state-disabled):hover {
+    border: none;
+}
+
+app-generatebills .input-control {
+    float: left;
+    .ui-calendar {
+        position: relative;
+        display: inline-block;
+        float: left;
+        width: 100%;
+    }
+}
+
+body .ui-inputtext {
+    padding: 0;
+    float: left;
+    width: 100%;
+    border: none;
+}

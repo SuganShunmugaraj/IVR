@@ -1,0 +1,22 @@
+.modal {
+    display: block;
+    background: #000000e0;
+    overflow: auto;
+}
+
+.modal-content {
+    border-radius: 0
+}
+
+.overlay {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: #000000bd;
+}
+
+body .ui-dialog {
+    width: 440px;
+}

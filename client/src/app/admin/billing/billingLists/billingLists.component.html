@@ -1,0 +1,34 @@
+<div class="col-md-12    billhist-base ivr-base nopadd">
+    <div class="col-md-12    billhist-generatebill text-right nopadd">
+        <h2 class="main-title">Billing List</h2>
+    </div>
+    <div class="col-md-12    searchbar-container nopadd">
+        <div class="col-md-12    billhist-generatebill text-right nopadd">
+            <a (click)="generateBillDisplay = true" class="themebtn1"><span class="plus-icon-bill">+</span>Generate bills</a>
+        </div>
+        <input type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" class="searchbar" placeholder="Search">
+        <div class="col-md-12 billhist-generatebill text-right nopadd">
+            <div class="theme-table">
+                <p-table [first]="activePagination" (onPage)="pageChange($event)" class="table table-striped" #dt [columns]="cols" [value]="dataSource" [paginator]="true" [rows]="10" [totalRecords]="totalRecords">
+                    <ng-template pTemplate="header" let-columns>
+                        <tr>
+                            <th *ngFor="let col of columns" [pSortableColumn]="col.field">{{col.header}} </th>
+                            <th>Action</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-rowData let-columns="columns">
+                        <tr>
+                            <td>{{rowData.billTo.companyName}}</td>
+                            <td>{{rowData.billTo.name}}</td>
+                            <td>
+                                <p> <a routerLink="/admin/billing/detail/{{rowData.billTo._id}}" class="custom-red">View Details</a></p>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-generatebills (generateBillModalDispay)="generateBillModalDispay($event)" *ngIf="generateBillDisplay"></app-generatebills>

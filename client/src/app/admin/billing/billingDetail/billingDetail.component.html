@@ -1,0 +1,49 @@
+<div class="breadcrumb-base col-md-12 col-sm-12 col-lg-12 col-xs-12">
+    <ul class="breadcrumb">
+        <li><a routerLink="/admin/billing">Billing List</a></li>
+        <li><a> {{dataSource[0]?.billTo?.companyName}}  </a></li>
+    </ul>
+</div>
+<div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 billhist-base ivr-base nopadd nomarnopad">
+    <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 billhist-generatebill text-right nopadd">
+        <h2 class="main-title">Billing </h2>
+    </div>
+    <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 searchbar-container nopadd">
+        <input type="text" (input)="da.filterGlobal($event.target.value, 'contains')" class="searchbar" placeholder="Search">
+        <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 billhist-generatebill text-right nopadd">
+            <a (click)="generateBillDisplay = true" class="themebtn1"><span class="plus-icon-bill">+</span>Generate bills</a>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 billhist-generatebill text-right nopadd">
+            <div class="theme-table">
+                <p-table class="table table-striped" #da [columns]="cols" [value]="dataSource" [paginator]="true" [rows]="10" [totalRecords]="totalRecords">
+                    <ng-template pTemplate="header" let-columns>
+                        <tr>
+                            <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                                {{col.header}}
+                            </th>
+                            <th>
+                                Action
+                            </th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-rowData let-columns="columns">
+                        <tr>
+                            <td>{{rowData.createdAt | date}}</td>
+                            <td>{{rowData.billId}}</td>
+                            <td>$ {{rowData.total}}</td>
+                            <td [class]="rowData.paymentStatus">{{rowData.paymentStatus}}</td>
+                            <td>
+                                <p>
+                                    <a (click)="viewBilling(rowData)" class="custom-black">view</a>
+                                    <a *ngIf="rowData.paymentStatus == 'unpaid'" (click)="remind(rowData)" class="custom-red">Remind({{rowData.remind}})</a>
+                                </p>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-generatebills [data]="selectedBill" (generateBillModalDispay)="generateBillModalDispay($event)" *ngIf="generateBillDisplay"></app-generatebills>

@@ -1,0 +1,74 @@
+<div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 billhist-base ivr-base nopadd">
+    <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 billhist-generatebill text-right nopadd">
+        <h2 class="main-title">SubAdmin Lists</h2>
+    </div>
+    <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 searchbar-container nopadd">
+        <input type="text" (input)="ds.filterGlobal($event.target.value, 'contains')" class="searchbar" placeholder="Search">
+        <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 billhist-generatebill text-right nopadd">
+            <a routerLink="/admin/subadmin/roles" class="themebtn1"><span class="plus-icon-bill">+</span>ADD NEW ROLES</a>
+
+            <a (click)="showDialog(null)" class="themebtn1"><span class="plus-icon-bill">+</span>CREATE USER</a>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 billhist-generatebill text-right nopadd">
+            <div class="theme-table">
+                <p-table *ngIf="dataSource" class="table table-striped" #ds [columns]="cols" [value]="dataSource" [paginator]="true" [rows]="10" [totalRecords]="totalRecords">
+                    <ng-template pTemplate="header" let-columns>
+                        <tr>
+                            <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                                {{col.header}}
+                            </th>
+                            <th class="action-width">
+                                Action
+                            </th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex" let-columns="columns">
+                        <tr>
+                            <td>{{rowData.name}}</td>
+                            <td>{{rowData.email}}</td>
+                            <td>{{rowData.createdAt | date :'dd.MM.yyyy'}}</td>
+                            <td>{{rowData.role.roleName}}</td>
+                            <td>
+                                <div *ngIf="rowData.role.roleName !== 'Admin'">
+                                    <p> <a (click)="onDeleteCoupon(rowData , rowIndex)" class="custom-red">Delete</a>
+                                        <a (click)="showDialog(rowData)" class="custom-red">Edit</a></p>
+                                </div>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="overlay" *ngIf="display"></div>
+<div *ngIf="display" class="login-modal modal fade " id="myModal">
+    <i class="mdi mdi-close" (click)="display = false"></i>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content col-md-12 nopadd">
+            <div class="modal-header col-md-12  ">
+                <span class="modalhea">  Subadmin</span>
+            </div>
+            <div class="modal-body col-md-12  ">
+                <form (ngSubmit)="onSubmitCoupon(subadminsForm);" #subadminsForm="ngForm">
+                    <div class="form-group bannerGroup">
+                        <label>Name:</label>
+                        <input type="text" [(ngModel)]="subadmins.name" #name="ngModel" class="form-control" name="name" id="name" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Email:</label>
+                        <input type="email" [(ngModel)]="subadmins.email" #email="ngModel" class="form-control" name="email" id="email" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Password:</label>
+                        <input type="password" [(ngModel)]="subadmins.password" #password="ngModel" class="form-control" name="password" id="password" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Roles:</label>
+                        <p-dropdown #dd [options]="roleslist" class="input-control" [(ngModel)]="subadmins.role" #role="ngModel" name="role" id="role" required></p-dropdown>
+                    </div>
+                    <button type="submit" [disabled]="!subadminsForm.form.valid" class="btn btn-success themebtn btn-block">Submit</button>
+                </form>
+            </div>
+        </div>

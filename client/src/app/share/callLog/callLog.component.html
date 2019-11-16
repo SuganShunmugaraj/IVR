@@ -1,0 +1,71 @@
+<div class="col-md-12 col-sm-12 col-lg-12 col-xs-12 section-base">
+    <div class="container">
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="user">
+                <div class="col-md-12 myaccount-base">
+                    <h2 class="main-title martop">Call Log</h2>
+                    <div class="col-md-12 myaccount-inner">
+                        <div class="tab-content">
+                            <div class="mar0 col-md-12 col-sm-12 col-xs-12 col-lg-12 billhist-base ivr-base nopadd">
+                                <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 searchbar-container nopadd">
+                                    <input type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" class="searchbar" placeholder="Search">
+                                    <div class="table-responsive theme-table">
+                                        <p-table class="table table-striped" #dt [columns]="cols" [first]="activePagination" (onPage)="pageChange($event)" [value]="executionslist" [paginator]="true" [rows]="10" [totalRecords]="totalRecords">
+                                            <ng-template pTemplate="header" let-columns>
+                                                <tr>
+                                                    <th class="width60"> Sno </th>
+                                                    <th> Date </th>
+                                                    <th class="width360">Sid </th>
+                                                    <th> Call From </th>
+                                                    <th> Action </th>
+                                                </tr>
+                                            </ng-template>
+                                            <ng-template pTemplate="body" let-rowIndex="rowIndex" let-rowData let-columns="columns">
+                                                <tr>
+                                                    <td>{{rowIndex + 1 }}</td>
+                                                    <td>{{rowData.dateCreated | date}}</td>
+                                                    <td>{{rowData.sid}}</td>
+                                                    <td>{{rowData.contactChannelAddress}}</td>
+                                                    <td>
+                                                        <p>
+                                                            <a (click)="getUserInput(rowData.sid)" class="custom-red">View User Input</a>
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                            </ng-template>
+                                        </p-table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="callLogData" class="login-modal modal fade " id="myModal">
+    <i class="mdi mdi-close" (click)="callLogData = null"></i>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content col-md-12 nopadd">
+            <div class="modal-body col-md-12 nopadd">
+                <div class="col-md-6">
+                    <ul class="baseingo">
+                        <li *ngFor="let info of  callLogData.context.trigger.call | keyvalue">
+                            <span class="fst">{{info.key}} :</span> <span class="sec"> {{info.value}}</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h3>User Input</h3>
+                    <br>
+                    <ul>
+                        <li *ngFor="let userInput of userInputs">
+                            <p *ngFor="let item of userInput  | keyvalue"> {{item.key}} : {{item.value}}</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

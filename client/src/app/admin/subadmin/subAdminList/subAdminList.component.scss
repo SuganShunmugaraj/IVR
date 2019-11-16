@@ -1,0 +1,43 @@
+input.searchbar {
+    margin: 0 0 40px 0;
+}
+
+a.themebtn1 {
+    margin: 0 0 0 10px;
+}
+
+.ng-touched.ng-invalid {
+    border-color: #ccc;
+}
+
+:host ::ng-deep p-dropdown.ng-dirty.ng-invalid>.ui-dropdown {
+    border-color: #ccc;
+}
+
+.modal {
+    display: block;
+    opacity: 1;
+    z-index: 3;
+}
+
+.mdi.mdi-close {
+    float: right;
+    color: #fff;
+    font-size: 50px;
+    margin: 0 20px 0 0;
+    position: fixed;
+    right: 20px;
+}
+
+.modalhea {
+    font-size: 20px;
+    margin: 0 0 0 10px;
+}
+
+.modal-body label {
+    font-weight: normal
+}
+
+.action-width {
+    width: 195px
+}

@@ -1,0 +1,25 @@
+.company-details-base {
+    margin-bottom: 60px;
+    @include box-shadow( 0, 3px, 12px, rgba(0, 0, 0, 0.08));
+    .company-details-inner {
+        padding: 0 5px;
+    }
+}
+
+.company-details-sections {
+    margin: 15px 0 30px;
+    .company-details-section-inner {
+        padding-left: 0;
+        padding-right: 25px;
+        h5 {
+            font: 16px $font-regular;
+            color: #555;
+            text-transform: uppercase;
+            margin: 0;
+        }
+        p {
+            font: 16px $font-regular;
+            color: #000;
+        }
+    }
+}

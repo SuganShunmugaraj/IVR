@@ -1,0 +1,129 @@
+.section-inner{
+    padding: 0;
+    margin-top: 50px;
+}
+.account-section-input{
+    margin-top: 30px;
+}
+.account-section-input-inner{
+    @include box-shadow(0,3px,12px,rgba(0, 0, 0, 0.08));
+    min-height: 420px;
+}
+.account-btn-container{
+    margin:20px 0;
+    text-align: center;
+}
+.account-btn-container-base{
+    margin: 80px 0; 
+    .themebtn{
+        padding: 11px 68px;
+    }
+}
+
+//Billing Section
+
+.billing-base{
+    margin: 35px 0;
+    text-align: center;
+    padding: 0;
+    
+}
+.cardinfo-base{
+    margin: 60px auto;
+    float: none;
+    display: inline-block;
+}
+.card-info-btn{
+    .themebtn{
+        width: 100%;
+    }
+}
+.billhist-base{
+    margin-bottom: 80px;
+}
+.billhist-generatebill{
+    .plus-icon-bill{
+        margin-right: 10px;
+        display: inline-block;
+    }
+}
+
+//ivr section
+.ivr-base{
+    margin: 35px 0 80px;
+    text-align: center;
+    padding: 0;
+}
+
+//sub-admin
+.sub-admin-check{
+    height: 150px;
+    overflow-y:auto; 
+    @include box-shadow(0,5px,10px,rgba(0, 0, 0, 0.25));
+    @include border-radius(5px);
+    .control{
+        font: 14px $font-semibold; 
+    }
+    
+}
+.sub-admin-btn{
+    margin-top: 25px;
+}
+
+//Generate modal
+.generatebill-base{
+    padding: 20px 20px 40px;
+
+}
+.modal-content1{
+    margin-top: 35px;
+}
+    .modal-content1-inner{
+            margin-bottom: 15px;
+        p{
+            font: 14px $font-regular;
+             color: #333333;
+             margin-top: 11px;
+        }
+    }
+
+.discription-base{
+    table{
+        thead{
+            background-color: #353940;
+            @include border-radius(10px);
+            p{
+                font: 14px $font-regular;
+                color: #fff;
+                margin-bottom: 0;
+                padding: 5px 13px;
+            }
+        }
+        tbody{
+            td{
+                padding: 5px;
+                p{
+                    font: 14px $font-regular;
+                    color: #333333;
+                }
+            }
+        }
+    }
+    h6{
+        font: 14px $font-semibold;
+        color: $themebg;
+        a{
+            color: $themebg;
+            &:hover{
+                color: $themebg;
+            }
+        }
+    }
+}
+
+//ivr request
+.ivr-request-base{
+    .input-control{
+        width: 75%;
+    }
+}

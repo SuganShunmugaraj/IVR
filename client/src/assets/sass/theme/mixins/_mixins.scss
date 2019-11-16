@@ -1,0 +1,96 @@
+@mixin box-shadow($top_box, $left_box, $blur, $color_box)
+{
+    -webkit-box-shadow: $top_box $left_box $blur $color_box;
+    -moz-box-shadow: $top_box $left_box $blur $color_box;
+    box-shadow: $top_box $left_box $blur $color_box;
+}
+@mixin box-shadow-sep($top_box, $left_box,$spread, $blur, $color_box)
+{
+    -webkit-box-shadow: $top_box $left_box $spread $blur $color_box;
+    -moz-box-shadow: $top_box $left_box $spread $blur $color_box;
+    box-shadow: $top_box $left_box $blur $spread $color_box;
+}
+@mixin border-radius-seprate($top_rad,$left_rad,$bottom_rad,$right_rad)
+{
+    border-radius: $top_rad $left_rad $bottom_rad $right_rad;
+-moz-border-radius:$top_rad $left_rad $bottom_rad $right_rad;
+-webkit-border-radius: $top_rad $left_rad $bottom_rad $right_rad;
+
+}
+@mixin border-radius($radius)
+{
+    border-radius: $radius;
+-moz-border-radius:$radius;
+-webkit-border-radius:$radius;
+}
+@mixin selectboxnone
+{
+-webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+}
+@mixin transition($prop_eff,$time_trans,$easein_eff)
+{
+    -webkit-transition: $prop_eff $time_trans $easein_eff ;
+-moz-transition: $prop_eff $time_trans $easein_eff ;
+-ms-transition: $prop_eff $time_trans $easein_eff ;
+-o-transition: $prop_eff $time_trans $easein_eff ;
+transition: $prop_eff $time_trans $easein_eff ;
+}
+// generic transform
+@mixin transform($transforms) {
+	   -moz-transform: $transforms;
+	     -o-transform: $transforms;
+	    -ms-transform: $transforms;
+	-webkit-transform: $transforms;
+          transform: $transforms;
+}
+// rotate
+@mixin rotate ($deg) {
+  @include transform(rotate(#{$deg}deg));
+}
+ 
+// scale
+@mixin scale($scale) {
+	 @include transform(scale($scale));
+} 
+// translate
+@mixin translate ($x, $y) {
+   @include transform(translate($x, $y));
+}
+// skew
+@mixin skew ($x, $y) {
+   @include transform(skew(#{$x}deg, #{$y}deg));
+}
+//transform origin
+@mixin transform-origin ($origin) {
+    moz-transform-origin: $origin;
+	     -o-transform-origin: $origin;
+	    -ms-transform-origin: $origin;
+	-webkit-transform-origin: $origin;
+          transform-origin: $origin;
+}
+
+@mixin gradient($color1,$color2,$color3,$color4)
+{
+   
+  /* For Safari 5.1 to 6.0 */
+  background: -webkit-linear-gradient(left,$color1,$color2,$color3,$color4);
+  /* For Opera 11.1 to 12.0 */
+  background: -o-linear-gradient(left,$color1,$color2,$color3,$color4);
+  /* For Fx 3.6 to 15 */
+  background: -moz-linear-gradient(left,$color1,$color2,$color3,$color4);
+  /* Standard syntax */
+  background: linear-gradient(to right, $color1,$color2,$color3,$color4); 
+}
+
+@mixin placeholder
+{
+    ::-webkit-input-placeholder { @content}
+::-moz-placeholder {@content }
+:-ms-input-placeholder { @content}
+:-moz-placeholder {@content }
+}
+
+
+

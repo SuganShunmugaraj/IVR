@@ -1,0 +1,102 @@
+<div class="breadcrumb-base col-md-12 col-sm-12 col-lg-12 col-xs-12">
+    <ul class="breadcrumb">
+        <li><a routerLink="/admin/users">User List</a></li>
+        <li><a> {{userId ? register?.companyName : 'Create User'}}  </a></li>
+    </ul>
+</div>
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="user">
+        <div class="col-md-12 myaccount-base">
+            <h2 class="main-title">{{userId ? register?.companyName : 'Create User'}}</h2>
+            <div class="col-md-12 myaccount-inner">
+                <ul class="nav themetab nav-tabs" role="tablist">
+                    <li role="presentation"><a routerLink="/admin/users/account/{{userId}}">My Account</a></li>
+                    <li role="presentation" class="active"><a>Billing </a></li>
+                    <li role="presentation"><a routerLink="/admin/users/ivr/{{userId}}">IVR List </a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="col-md-12 billing-base">
+                        <ul class="nav themetab1 nav-tabs" role="tablist">
+                            <li role="presentation"><a href="#cardinfo" class="active" aria-controls="cardinfo" role="tab" data-toggle="tab">CARD INFO</a></li>
+                            <li role="presentation"><a href="#billhist" aria-controls="billhist" role="tab" data-toggle="tab">BILLING HISTORY </a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="cardinfo">
+                                <form (ngSubmit)="onSubmitForm(useraccountForm);" #useraccountForm="ngForm">
+                                    <div class="col-md-9 cardinfo-base">
+                                        <div class="col-md-12 input-container-base nopadd">
+                                            <div class="col-md-6   input-container ">
+                                                <input type="text" (keypress)="keypressCardNumber($event)" required class="input-control" (input)="valueChange($event.target.value , 19 , cday )" minlength="19" maxlength="19" [(ngModel)]="account.cardNumber" #cardNumber="ngModel" name="cardNumber" id="cardNumber"
+                                                    class="input-control" placeholder="Card Number">
+                                            </div>
+                                            <div class="col-md-6 input-container">
+                                                <div class="col-md-4 date-container">
+                                                    <input type="text" required class="input-control" #cday (input)="valueChange($event.target.value , 2 , cmonth )" pattern="\d*" minlength="2" maxlength="2" [(ngModel)]="account.expDay" #expDay="ngModel" name="expDay" id="expDay" class="input-control" placeholder="DD">
+                                                </div>
+                                                <div class="col-md-4  date-container">
+                                                    <input type="text" id="cmonth" #cmonth (input)="valueChange($event.target.value , 2 , cyear )" required class="input-control" pattern="\d*" minlength="2" maxlength="2" [(ngModel)]="account.expMonth" #expMonth="ngModel" name="expMonth" id="expMonth" class="input-control"
+                                                        placeholder="MM">
+                                                </div>
+                                                <div class="col-md-4 date-container">
+                                                    <input type="text" #cyear required (input)="valueChange($event.target.value , 4 , cname )" class="input-control" pattern="\d*" minlength="4" maxlength="4" [(ngModel)]="account.expYear" #expYear="ngModel" name="expYear" id="expYear" class="input-control"
+                                                        placeholder="YYYY">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 input-container-base nopadd">
+                                            <div class="col-md-6 input-container">
+                                                <input type="text" required class="input-control" #cname [(ngModel)]="account.cardHolder" #cardHolder="ngModel" name="cardHolder" id="cardHolder" class="input-control" placeholder="Card holder’s name">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 card-info-btn">
+                                            <div class="col-md-12 account-btn-container">
+                                                <button type="submit" [disabled]="!useraccountForm.valid" [class.disabled]="useraccountForm.valid" class="themebtn">SAVE CARD INFO</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="billhist">
+                                <div class="col-md-12 billhist-base nopadd">
+                                    <div class="col-md-12 billhist-generatebill text-right nopadd">
+                                        <a (click)="generateBillDisplay = true" class="themebtn1"><span class="plus-icon-bill">+</span>GENERATE BILL</a>
+                                    </div>
+                                    <div class="col-md-12 searchbar-container nopadd">
+                                        <input type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" class="searchbar" placeholder="Search">
+                                        <div class="table-responsive theme-table">
+                                            <p-table class="table table-striped" #dt [columns]="cols" [value]="dataSource" [paginator]="true" [rows]="10" [totalRecords]="totalRecords">
+                                                <ng-template pTemplate="header" let-columns>
+                                                    <tr>
+                                                        <th *ngFor="let col of columns" [pSortableColumn]="col.field"> {{col.header}}</th>
+                                                        <th> Actions </th>
+                                                    </tr>
+                                                </ng-template>
+                                                <ng-template pTemplate="body" let-rowData let-columns="columns">
+                                                    <tr>
+                                                        <td>{{rowData.createdAt | date}}</td>
+                                                        <td>{{rowData.billId}}</td>
+                                                        <td>$ {{rowData.total}}</td>
+                                                        <td [class]="rowData.paymentStatus">{{rowData.paymentStatus}}</td>
+                                                        <td>
+                                                            <p>
+                                                                <a (click)="viewBilling(rowData)" class="custom-black cursor">view</a>
+                                                                <a *ngIf="rowData.paymentStatus == 'unpaid'" (click)="paybypal(rowData.total)" class="custom-red paybillbutton cursor">pay the bill</a>
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                </ng-template>
+                                            </p-table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<app-generatebills [data]="selectedBill" (generateBillModalDispay)="generateBillModalDispay($event)" *ngIf="generateBillDisplay"></app-generatebills>

@@ -1,0 +1,23 @@
+
+.footer-copy{
+    font: 14px $font-regular;
+    color: #fff;
+    text-align: left;
+    display: inline-block;
+}
+.conditions-terms{
+    font:14px $font-regular;
+    color: #e6272b;
+    text-align: right;
+    float: right;
+    a{
+        color: #e6272b;
+        &:hover{
+            text-decoration: none;
+        }
+    }
+}
+.footer-base{
+    background: #000000;
+    padding: 30px 80px;
+}

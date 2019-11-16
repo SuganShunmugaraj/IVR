@@ -1,0 +1,17 @@
+<section>
+    <div class="col-md-12 login-base">
+        <div class="container">
+            <div class="col-md-12 login-inner">
+                <div class="col-md-7 login-text">
+                    <h2>Make your Own IVR in CuServe</h2>
+                    <h3>Build conversations anywhere. Make, receive, and monitor calls around the world.</h3>
+                    <ul *ngIf="!isLogged" class="list-inline">
+                        <li><a class="registerbtn" (click)="signindisplay('signup')">REGISTER</a></li>
+                        <li><span>or</span></li>
+                        <li><a (click)="signindisplay('signin')" class="themebtn">LOGIN</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

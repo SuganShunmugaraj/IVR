@@ -1,0 +1,226 @@
+.rightside {
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.07);
+    float: right;
+    width: 400px;
+    overflow: auto;
+    background: #fff;
+    padding: 130px 20px 20px 20px;
+    margin: 0;
+}
+
+.chatcontent {
+    float: left;
+    cursor: -webkit-grab;
+    cursor: -moz-grab;
+    background: linear-gradient(#dceefd, rgba(255, 255, 255, 0) 1px), linear-gradient(90deg, #dceefd, rgba(255, 255, 255, 0) 1px);
+    background-size: 10px 10px;
+    background-position: 0 0;
+    width: calc(100% - 380px);
+    height: calc(100% - 72px);
+    padding: 60px 0 0 0;
+    overflow: auto;
+}
+
+.slot {
+    float: left;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+    h5 {
+        font-size: 15px;
+        margin: 0 0 0 0;
+        padding: 10px 10px;
+        cursor: pointer;
+    }
+}
+
+form {
+    float: left;
+    width: 100%;
+    padding: 0 10px 30px 10px;
+}
+
+.buttonHolder {
+    float: left;
+    width: 100%;
+    padding: 10px 10px;
+    .haf {
+        float: left;
+        width: 145px;
+        border-radius: 5px;
+        padding: 8px 4px;
+    }
+    .full {
+        float: left;
+        width: 310px;
+    }
+    .edit {
+        border: 1px solid #e6272b;
+        color: #e6272b;
+        background: none;
+        border-radius: 5px;
+    }
+    .delete {
+        background: #000;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        border: 1px solid #000;
+    }
+}
+
+.buttonHolder button {
+    margin: 10px;
+}
+
+.node-header {
+    color: #e6272b;
+    font-family: "PoppinsSemiBold";
+    margin: 0 0 8px 0px;
+    font-size: 16px;
+}
+
+.form-control {
+    height: calc(1.8rem + 2px);
+    border-radius: 0;
+    font-size: 14px;
+    height: 32px;
+    margin: 5px 0 0 0;
+    float: left;
+}
+
+.form-group {
+    margin-bottom: 10px;
+    float: left;
+    width: 100%;
+}
+
+textarea.form-control {
+    height: 100px;
+}
+
+.brandform {
+    float: left;
+    width: 87%;
+    margin: 0 0 0 0;
+}
+
+span.suboptionntext {
+    float: left;
+    width: 100%;
+    font-size: 10px;
+    color: #000;
+    font-weight: normal;
+    margin: 3px 0 1px 0;
+}
+
+.messagebody {
+    float: left;
+    width: 110%;
+    border-top: 1px solid #ccc;
+    margin: 10px 0 0 -10px;
+    padding: 0px 0 0px 0;
+}
+
+span.datames {
+    float: left;
+    width: 100%;
+    font-size: 12px;
+    text-align: left;
+    padding: 4px 12px 12px 12px;
+}
+
+.ivrbtn {
+    float: left;
+    background: #e6272b;
+    color: #fff;
+    font-size: 12px;
+    padding: 5px 13px;
+    margin: 0 6px;
+    border-radius: 20px;
+}
+
+.form-group.tansition {
+    background: #f5f0f047;
+    padding: 20px 10px;
+    border: 1px solid #cccccc14;
+    border-radius: 3px;
+}
+
+.brandform .bannerGroup {
+    label {
+        font-weight: normal;
+        font-size: 13px;
+    }
+    .subnodetitle {
+        font-weight: bold
+    }
+    p-dropdown {
+        background: #fff;
+    }
+}
+
+body .ui-organizationchart .ui-organizationchart-node-content {
+    &.ui-trigger {
+        width: 420px;
+        border-radius: 0;
+        border-top: 5px solid #e6272b;
+    }
+}
+
+body .ui-organizationchart .ui-organizationchart-node-content {
+    border: 1px solid #c8c8c8;
+    background-color: #ffffff;
+    color: #333333;
+    padding: 10px 10px;
+    border-radius: 6px;
+}
+
+body .ui-organizationchart .ui-organizationchart-node-content.ui-state-highlight {
+    background: none;
+    border-color: #d41e21;
+    box-shadow: 0 0 1px 0px #d41e21;
+    .node-content,
+    .node-header {
+        // color: #ffffff;
+    }
+}
+
+body .ui-organizationchart .ui-organizationchart-node-content .ui-node-toggler {
+    display: none
+}
+
+.ivrpage {
+    page-header,
+    app-footer,
+    app-header,
+    admin-header {
+        display: none
+    }
+    .adminbody {
+        .section-inner {
+            margin-top: 0;
+        }
+        .col-md-12.section-base {
+            padding: 0;
+        }
+        .container {
+            padding: 0;
+            width: 100%;
+        }
+    }
+}
+
+.ivrheader {
+    background: #e6e6e6;
+    padding: 13px 10px;
+    float: left;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .3);
+    margin: 0 0 0px 0;
+    z-index: 9;
+    position: relative;
+}

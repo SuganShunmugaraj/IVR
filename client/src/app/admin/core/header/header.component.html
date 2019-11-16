@@ -1,0 +1,35 @@
+<header>
+    <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12 head-base">
+        <div class="container">
+            <div class="head-inner col-md-12 col-sm-12 col-xs-12  col-lg-12">
+                <nav *ngIf="roles" class="navbar navbar-default menu-base">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <span class="navbar-brand"><img src="../../../assets/images/logo.png" alt="logo"></span>
+                        </div>
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul *ngIf="roles" class="nav navbar-nav nav-tabs" role="tablist">
+                                <li role="presentation" *ngIf="roles.includes('View_Users_List')" routerLinkActive="active" routerLink="/admin/users"><a>Users</a></li>
+                                <li role="presentation" *ngIf="roles.includes('View_Billing_List')" routerLinkActive="active" routerLink="/admin/billing"><a>Billing </a></li>
+                                <li role="presentation" *ngIf="roles.includes('View_Request_List')" routerLinkActive="active" routerLink="/admin/request"><a>Requests <span  *ngIf="ivrLength && ivrLength > 0" class="count-indicator">{{ivrLength}}</span></a></li>
+                                <li role="presentation" *ngIf="roles.includes('View_Android_List')" routerLinkActive="active" routerLink="/admin/android"><a>Android </a></li>
+                            </ul>
+                            <ul class="list-inline pull-right account-head-ul">
+                                <li> <a routerLinkActive="active" *ngIf="roles?.includes('View_subadmin_List')" routerLink="/admin/subadmin" class="themebtn">SUB-ADMINS</a> </li>
+                                <li><a (click)="logout()" class="themebtn">Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+<app-loader *ngIf="!roles"></app-loader>

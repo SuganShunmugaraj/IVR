@@ -1,0 +1,93 @@
+<div class="breadcrumb-base col-md-12 col-sm-12 col-lg-12 col-xs-12">
+    <ul class="breadcrumb">
+        <li><a routerLink="/admin/android">Android List</a></li>
+        <li><a>Add Company  </a></li>
+    </ul>
+</div>
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="user">
+        <div class="col-md-12  myaccount-base">
+            <h2 class="main-title"> Add Company</h2>
+            <div class="col-md-12  myaccount-inner">
+                <div class="tab-content">
+                    <form (ngSubmit)="onSubmitForm(registerForm);" #registerForm="ngForm">
+                        <div class="col-md-12  account-section-input">
+                            <div class="col-md-12    account-section-input-inner">
+                                <h3 class="sub-title">Company Details</h3>
+                                <div class="col-md-12  input-container-base nopadd">
+                                    <div class="col-md-6 input-container ">
+                                        <input type="text" required class="input-control" [(ngModel)]="register.name" #name="ngModel" name="name" id="name" placeholder="Name">
+                                        <div *ngIf="name.touched && name.invalid" class="invalid-feedback">
+                                            <div *ngIf="name.errors.required">Name is required</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 input-container">
+                                        <input type="text" required class="input-control" [(ngModel)]="register.ivrName" #ivrName="ngModel" name="ivrName" id="ivrName" placeholder="IVR Name">
+                                        <div *ngIf="ivrName.touched && ivrName.invalid" class="invalid-feedback">
+                                            <div *ngIf="ivrName.errors.required">IVR Name is required</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12  input-container-base nopadd">
+                                    <div class="col-md-6 input-container ">
+                                        <input type="text" required class="input-control" [(ngModel)]="register.baseKeyCode" #baseKeyCode="ngModel" name="baseKeyCode" id="baseKeyCode" placeholder="Basekey code">
+                                        <div *ngIf="baseKeyCode.touched && baseKeyCode.invalid" class="invalid-feedback">
+                                            <div *ngIf="baseKeyCode.errors.required">BaseKey code is required</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 input-container">
+                                        <input required type="text" class="input-control" [(ngModel)]="register.logoUrl" #logoUrl="ngModel" name="logoUrl" id="logoUrl" placeholder="Logo Url">
+                                        <div *ngIf="logoUrl.touched && logoUrl.invalid" class="invalid-feedback">
+                                            <div *ngIf="logoUrl.errors.required">Logo URL is required</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 input-container-base nopadd">
+                                    <div class="col-md-6  input-container ">
+                                        <p-dropdown required class="input-control" required [options]="categoryList" [(ngModel)]="register.category" #category="ngModel" name="category" id="category"></p-dropdown>
+                                        <div *ngIf="category.touched && category.invalid" class="invalid-feedback">
+                                            <div *ngIf="category.errors.required">Category is required</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6  input-container ">
+                                        <input type="text" required class="input-control" [(ngModel)]="register.displayName" #displayName="ngModel" name="displayName" id="displayName" placeholder="Display Name">
+                                        <div *ngIf="displayName.touched && displayName.invalid" class="invalid-feedback">
+                                            <div *ngIf="displayName.errors.required">Display Name is required</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 input-container-base nopadd">
+                                    <div class="col-md-6 input-container ">
+                                        <input type="text" required class="input-control" [(ngModel)]="register.customerCare" #customerCare="ngModel" name="customerCare" id="customerCare" placeholder="Customer Care">
+                                        <div *ngIf="customerCare.touched && customerCare.invalid" class="invalid-feedback">
+                                            <div *ngIf="customerCare.errors.required">Customer Care is required</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 input-container ">
+                                        <input type="text" class="input-control" [(ngModel)]="register.tagline" #tagline="ngModel" name="customerCare" id="Tagline" placeholder="Tagline (optional)">
+                                    </div>
+                                </div>
+                                <div class="col-md-12 input-container-base nopadd">
+                                    <div class="col-md-6  input-container ">
+                                        <label class="formtit">Upload CSV</label>
+                                        <p-fileUpload accept=".csv" name="csv[]" [url]="uploadCsv" (onUpload)="onUpload($event , 'csv')" mode="basic" auto="auto"></p-fileUpload>
+                                        <input type="text" class="hide" hidden [(ngModel)]="register.cuservejson" #cuservejson="ngModel" name="cuservejson" id="cuservejson" required>
+                                        <label class="filenametext" *ngIf="uploadedFileName">{{uploadedFileName}}</label>
+                                        <div *ngIf="cuservejson.touched && cuservejson.invalid" class="invalid-feedback">
+                                            <div *ngIf="cuservejson.errors.required">CSV is required</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12  account-btn-container-base">
+                                <div class="col-md-12  account-btn-container">
+                                    <button type="submit" [disabled]="!registerForm.valid" class="themebtn">SUBMIT</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

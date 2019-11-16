@@ -1,0 +1,79 @@
+<div class="col-md-12 col-sm-12 col-lg-12 col-xs-12 section-base">
+    <div class="container">
+        <div class="section-inner">
+
+
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="user">
+                    <div class="col-md-12 myaccount-base">
+                        <h2 class="main-title">My IVR</h2>
+                        <div class="col-md-12 myaccount-inner">
+
+                            <div class="tab-content">
+
+                                <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 billhist-base ivr-base nopadd">
+                                    <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 ivrbutton text-right nopadd">
+                                        <a routerLink="/dashboard/createivr/{{userId}}" class="themebtn1"><span class="plus-icon-bill">+</span>CREATE IVR</a>
+                                    </div>
+                                    <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 searchbar-container nopadd">
+                                        <input type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" class="searchbar" placeholder="Search">
+
+
+                                        <div class="table-responsive theme-table">
+
+                                            <p-table class="table table-striped" #dt [columns]="cols" [first]="activePagination" (onPage)="pageChange($event)" [value]="dataSource" [paginator]="true" [rows]="8" [totalRecords]="totalRecords">
+                                                <ng-template pTemplate="header" let-columns>
+                                                    <tr>
+                                                        <th *ngFor="let col of columns" [pSortableColumn]="col.field"> {{col.header}}</th>
+                                                        <th>Call Log</th>
+                                                        <th> Action </th>
+                                                    </tr>
+                                                </ng-template>
+                                                <ng-template pTemplate="body" let-rowData let-rowindex="i" let-columns="columns">
+                                                    <tr>
+                                                        <td>{{rowData.ivrName}}</td>
+                                                        <td>{{rowData.createdAt | date}}</td>
+                                                        <td>{{rowData.createdBy.name}}</td>
+
+                                                        <td>
+                                                            <p class="margin0" *ngIf="rowData.status" [ngClass]="{
+                                                                'custom-orange':rowData.status === 'pending',
+                                                                'custom-green':rowData.status === 'approved',
+                                                                'custom-red':rowData.status === 'declined',
+                                                                'custom-ash':rowData.status === 'draft'
+                                                              }">{{rowData.status}}</p>
+
+                                                            <p *ngIf="rowData.assignedNumber" class="marlef">Ivr Number: {{rowData.assignedNumber}}</p>
+
+                                                        </td>
+                                                        <td>
+                                                            <p>
+                                                                <a *ngIf="rowData.twilioNumber" routerLink="/dashboard/calllog/{{rowData.twilioNumber}}" class="custom-red">View</a>
+                                                            </p>
+                                                        </td>
+                                                        <td>
+                                                            <p>
+                                                                <!-- <a routerLink="/dashboard/editivr/{{rowData._id}}">View</a> -->
+                                                                <a routerLink="/dashboard/editivr/{{rowData._id}}/{{rowData.createdBy._id}}">Edit</a>
+                                                                <a (click)="deleteIvr(rowData , i)" class="custom-red">Delete</a>
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                </ng-template>
+                                            </p-table>
+
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,94 @@
+<div class="col-md-12    billhist-base ivr-base nopadd">
+    <div class="col-md-12    billhist-generatebill text-right nopadd">
+        <h2 class="main-title">Add Roles</h2>
+    </div>
+    <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 searchbar-container nopadd">
+        <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 billhist-generatebill text-right nopadd">
+            <div class="theme-table">
+                <form (ngSubmit)="addPrivilage(addPrivilageForm);" #addPrivilageForm="ngForm">
+                    <div class="col-md-12 login-modal-base">
+                        <div class="col-md-12  input-container-base nopadd">
+                            <div class="col-md-12input-container ">
+                                <input type="text" required class="input-control" [(ngModel)]="roles.name" #name="ngModel" name="name" id="name" placeholder="Roles Name">
+                            </div>
+                        </div>
+                        <table ngModelGroup="privilege" class="table">
+                            <thead>
+                                <tr>
+                                    <th>PAGES</th>
+                                    <th>ADD</th>
+                                    <th>VIEW</th>
+                                    <th>EDIT</th>
+                                    <th>DELETE</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Users</td>
+                                    <td>
+                                        <p-checkbox name="userlist" value="add" [(ngModel)]="roles.userlist" #userlist="ngModel" name="userlist"></p-checkbox>
+                                    </td>
+                                    <td>
+                                        <p-checkbox name="userlist" value="view" [(ngModel)]="roles.userlist" #userlist="ngModel" name="userlist"></p-checkbox>
+                                    </td>
+                                    <td>
+                                        <p-checkbox name="userlist" value="edit" [(ngModel)]="roles.userlist" #userlist="ngModel" name="userlist"></p-checkbox>
+                                    </td>
+                                    <td>
+                                        <p-checkbox name="userlist" value="delete" [(ngModel)]="roles.userlist" #userlist="ngModel" name="userlist"></p-checkbox>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>IVR</td>
+                                    <td>
+                                        <p-checkbox name="ivrlist" value="add" [(ngModel)]="roles.ivrlist" #ivrlist="ngModel" name="ivrlist"></p-checkbox>
+                                    </td>
+                                    <td>
+                                        <p-checkbox name="ivrlist" value="view" [(ngModel)]="roles.ivrlist" #ivrlist="ngModel" name="ivrlist"></p-checkbox>
+                                    </td>
+                                    <td>
+                                        <p-checkbox name="ivrlist" value="edit" [(ngModel)]="roles.ivrlist" #ivrlist="ngModel" name="ivrlist"></p-checkbox>
+                                    </td>
+                                    <td>
+                                        <p-checkbox name="ivrlist" value="delete" [(ngModel)]="roles.ivrlist" #ivrlist="ngModel" name="ivrlist"></p-checkbox>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Billing</td>
+                                    <td>
+                                        <p-checkbox name="billing" value="add" [(ngModel)]="roles.billing" #billing="ngModel" name="billing"></p-checkbox>
+                                    </td>
+                                    <td>
+                                        <p-checkbox name="billing" value="view" [(ngModel)]="roles.billing" #billing="ngModel" name="billing"></p-checkbox>
+                                    </td>
+                                    <td>
+                                        <p-checkbox name="billing" value="edit" [(ngModel)]="roles.billing" #billing="ngModel" name="billing"></p-checkbox>
+                                    </td>
+                                    <td>
+                                        <p-checkbox name="billing" value="delete" [(ngModel)]="roles.billing" #billing="ngModel" name="billing"></p-checkbox>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Request</td>
+                                    <td>
+                                        <p-checkbox name="request" value="add" [(ngModel)]="roles.request" #request="ngModel" name="request"></p-checkbox>
+                                    </td>
+                                    <td>
+                                        <p-checkbox name="request" value="view" [(ngModel)]="roles.request" #request="ngModel" name="request"></p-checkbox>
+                                    </td>
+                                    <td>
+                                        <p-checkbox name="request" value="edit" [(ngModel)]="roles.request" #request="ngModel" name="request"></p-checkbox>
+                                    </td>
+                                    <td>
+                                        <p-checkbox name="request" value="delete" [(ngModel)]="roles.request" #request="ngModel" name="request"></p-checkbox>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <button type="submit" class="btn themebtn">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

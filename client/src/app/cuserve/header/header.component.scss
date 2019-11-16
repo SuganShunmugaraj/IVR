@@ -1,0 +1,27 @@
+.logout-link {
+    cursor: pointer;
+}
+
+label.initial {
+    border: 1px solid #ccc;
+    width: 40px;
+    height: 40px;
+    margin: 3px 0 0 0;
+    text-align: center;
+    border-radius: 50%;
+    vertical-align: middle;
+    padding: 4px 0 0 0;
+    font-size: 20px;
+    color: #827f7f;
+}
+
+.account-img {
+    width: 67px;
+}
+
+.account-img img {
+    margin: 3px 0 0 0;
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+}

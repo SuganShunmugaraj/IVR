@@ -1,0 +1,246 @@
+<div class="modal fade generatebill-modal " id="generatebill" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <span (click)="close()" class="close">
+        <i class="mdi mdi-close"></i>
+    </span>
+    <div class="modal-dialog modal-lg" role="document">
+        <div id="contentToConvert" class="modal-content col-md-12    nopadd">
+            <form #billForm="ngForm" *ngIf="viewOnly && billData" (ngSubmit)="generateBill()">
+                <div class="modal-body generatebill-base col-md-12   ">
+                    <div class="col-md-12    modal-logo nopadd">
+                        <img src="assets/images/logo.png" alt="logo">
+                    </div>
+                    <div class="  col-md-12  modal-content1 nopadd">
+                        <div class="col-md-6     modal-content1-inner nopadd">
+                            <div class="col-md-2  modal-content1-section nopadd">
+                                <p>Bill To</p>
+                            </div>
+                            <div class="col-md-8   modal-content1-section">
+
+                                <p>{{billData.billTo.companyName}}</p>
+                                <p style="opacity: 0;float: left;">126, Radhakrishnan Street, Belliyappa Nagar, Walajapet, Vellore, Tamilnadu, India - 632513.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6     modal-content1-inner text-right rightpad">
+                            <div class="   col-lg-4 modal-content1-section nopadd">
+                                <p>Date</p>
+                            </div>
+                            <div class="col-md-8  modal-content1-section">
+                                {{billData.createdAt | date}}
+                            </div>
+                        </div>
+                        <div class="col-md-6     modal-content1-inner text-right rightpad">
+                            <div class="   col-lg-4 modal-content1-section nopadd">
+                                <p>Payment Terms</p>
+                            </div>
+                            <div class="col-md-8  modal-content1-section">
+                                {{billData.paymentTerms}}
+                            </div>
+                        </div>
+                        <div class="col-md-6     modal-content1-inner text-right rightpad">
+                            <div class="   col-lg-4 modal-content1-section nopadd">
+                                <p>Due Date</p>
+                            </div>
+                            <div class="col-md-8 modal-content1-section">
+                                {{billData.dueDate | date}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 discription-base nopadd">
+                        <div class="table-responsive">
+                            <table style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 60%">
+                                            <p>Description</p>
+                                        </th>
+                                        <th style="width: 13%">
+                                            <p>Calls</p>
+                                        </th>
+                                        <th style="width: 13%">
+                                            <p>Call cost</p>
+                                        </th>
+                                        <th style="width: 13%" class="text-center">
+                                            <p>Amount</p>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <ng-container *ngIf="billData.items">
+                                        <tr *ngFor="let itemdata of billData.items">
+
+                                            <td>{{itemdata.description}}</td>
+                                            <td>{{itemdata.calls}}</td>
+                                            <td>{{itemdata.cost}}</td>
+                                            <td>{{itemdata.calls * itemdata.cost}}</td>
+                                        </tr>
+                                    </ng-container>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-md-12    generatebill-foot nopadd">
+                        <div class="col-md-12     nopadd">
+                            <div class="col-md-6     modal-content1-inner pull-right text-right">
+                                <div class="   col-lg-9 modal-content1-section nopadd">
+                                    <p>Sub-Total</p>
+                                </div>
+                                <div class="col-md-3 modal-content1-section">
+                                    <input type="text" readonly class="input-control" [(ngModel)]="billData.subtotal" #subtotal="ngModel" name="subtotal" id="subtotal">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12     nopadd">
+                            <div class="col-md-6     modal-content1-inner pull-right text-right">
+                                <div class="   col-lg-9 modal-content1-section nopadd">
+                                    <p>Tax (%)</p>
+                                </div>
+                                <div class="col-md-3 modal-content1-section">
+                                    <input type="text" readonly class="input-control" [(ngModel)]="billData.tax" #tax="ngModel" name="tax" id="tax">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12     nopadd">
+                            <div class="col-md-6     modal-content1-inner pull-right text-right">
+                                <div class="   col-lg-4 modal-content1-section nopadd">
+                                    <p style=" font-size: 24px;  margin: 15px 0 0 0; ">Total</p>
+                                </div>
+                                <div class="col-md-8 col-sm-8  col-lg-8 modal-content1-section">
+                                    <h3> ${{ billData.total}}</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 text-center  nopadd">
+                            <button type="button" (click)="captureScreen()" class="themebtn">Download</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <form #billForm="ngForm" *ngIf="!viewOnly" (ngSubmit)="generateBill()">
+                <div class="modal-body generatebill-base col-md-12   ">
+                    <div class="col-md-12    modal-logo nopadd">
+                        <img src="assets/images/logo.png" alt="logo">
+                    </div>
+                    <div class="  col-md-12  modal-content1 nopadd">
+                        <div class="col-md-6     modal-content1-inner nopadd">
+                            <div class="col-md-2  modal-content1-section nopadd">
+                                <p>Bill To</p>
+                            </div>
+                            <div class="col-md-8   modal-content1-section">
+                                <p-dropdown #dd [options]="customerList" class="input-control" [(ngModel)]="billData.billTo" #billTo="ngModel" name="billTo" id="billTo" filter="true" required></p-dropdown>
+                                <p style="opacity: 0;float: left;">126, Radhakrishnan Street, Belliyappa Nagar, Walajapet, Vellore, Tamilnadu, India - 632513.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6     modal-content1-inner text-right">
+                            <div class="   col-lg-4 modal-content1-section nopadd">
+                                <p>Date</p>
+                            </div>
+                            <div class="col-md-8  modal-content1-section">
+                                <p-calendar class="input-control" [(ngModel)]="billData.createdAt" #createdAt="ngModel" name="createdAt" id="createdAt"></p-calendar>
+                            </div>
+                        </div>
+                        <div class="col-md-6     modal-content1-inner text-right">
+                            <div class="   col-lg-4 modal-content1-section nopadd">
+                                <p>Payment Terms</p>
+                            </div>
+                            <div class="col-md-8  modal-content1-section">
+                                <input type="text" class="input-control" [(ngModel)]="billData.paymentTerms" #paymentTerms="ngModel" name="paymentTerms" id="paymentTerms">
+                            </div>
+                        </div>
+                        <div class="col-md-6     modal-content1-inner text-right">
+                            <div class="   col-lg-4 modal-content1-section nopadd">
+                                <p>Due Date</p>
+                            </div>
+                            <div class="col-md-8 modal-content1-section">
+                                <p-calendar class="input-control" [(ngModel)]="billData.dueDate" #dueDate="ngModel" name="dueDate" id="dueDate"></p-calendar>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 discription-base nopadd">
+                        <div class="table-responsive">
+                            <table style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 60%">
+                                            <p>Description</p>
+                                        </th>
+                                        <th style="width: 13%">
+                                            <p>Calls</p>
+                                        </th>
+                                        <th style="width: 13%">
+                                            <p>Call cost</p>
+                                        </th>
+                                        <th style="width: 13%" class="text-center">
+                                            <p>Amount</p>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <ng-container *ngIf="billData.items">
+                                        <tr *ngFor="let itemdata of billData.items">
+                                            <td>{{itemdata.description}}</td>
+                                            <td>{{itemdata.calls}}</td>
+                                            <td>{{itemdata.cost}}</td>
+                                            <td>{{itemdata.calls * itemdata.cost}}</td>
+                                        </tr>
+                                    </ng-container>
+                                    <tr ngModelGroup="cartItems" #items="ngModelGroup">
+                                        <td>
+                                            <input type="text" required (change)="getSubTotal(items)" class="input-control" [(ngModel)]="cartItems.description" #description="ngModel" name="description" id="description">
+                                        </td>
+                                        <td>
+                                            <input type="text" (change)="getSubTotal(items)" required class="input-control" [(ngModel)]="cartItems.calls" #calls="ngModel" name="calls" id="calls">
+                                        </td>
+                                        <td>
+                                            <input type="text" (change)="getSubTotal(items)" required class="input-control" [(ngModel)]="cartItems.cost" #cost="ngModel" name="cost" id="cost">
+                                        </td>
+                                        <td class="text-center">
+                                            <p *ngIf="cartItems.calls && cartItems.cost">$ {{cartItems.calls * cartItems.cost}}</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <h6><a [class.disabled]="!items.valid" (click)="addItems()"><span>+</span> Add items </a></h6>
+                        </div>
+                    </div>
+                    <div class="col-md-12    generatebill-foot nopadd">
+                        <div class="col-md-12     nopadd">
+                            <div class="col-md-6     modal-content1-inner pull-right text-right">
+                                <div class="   col-md-9 modal-content1-section nopadd">
+                                    <p>Sub-Total</p>
+                                </div>
+                                <div class="col-md-3 modal-content1-section">
+                                    <input type="text" class="input-control" [(ngModel)]="billData.subtotal" #subtotal="ngModel" name="subtotal" id="subtotal">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12     nopadd">
+                            <div class="col-md-6     modal-content1-inner pull-right text-right">
+                                <div class="   col-md-9 modal-content1-section nopadd">
+                                    <p>Tax (%)</p>
+                                </div>
+                                <div class="col-md-3 modal-content1-section">
+                                    <input type="text" class="input-control" [(ngModel)]="billData.tax" #tax="ngModel" name="tax" id="tax">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12     nopadd">
+                            <div class="col-md-6     modal-content1-inner pull-right text-right">
+                                <div class="   col-lg-4 modal-content1-section nopadd">
+                                    <p style="
+                                    margin-top: 20px;
+                                ">Total</p>
+                                </div>
+                                <div class="col-md-8 col-sm-8  col-lg-8 modal-content1-section">
+                                    <h3 *ngIf="billData.tax &&  billData.subtotal"> $ {{billData.subtotal + (billData.tax/ 100) * billData.subtotal}}</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12    text-center  nopadd">
+                            <button [disabled]="!billForm.valid" type="submit" class="themebtn">Generate bill and send</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

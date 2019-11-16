@@ -1,0 +1,46 @@
+.inputvalequal {
+    margin: 0 0 10px 0px;
+    width: 90px;
+    clear: both;
+    float: right;
+}
+
+.btnhold {
+    float: left;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.text-error {
+    color: red
+}
+
+input#ivrnam {
+    width: 230px;
+    float: none;
+    display: inline-block;
+    margin: 0 0 0 20px;
+    height: 39px;
+}
+
+.disabled {
+    opacity: .5;
+    pointer-events: none;
+}
+
+.removetxt {
+    float: left;
+    width: 100%;
+    margin: 10px 0 0 0;
+    font-size: 12px;
+    text-align: right;
+    cursor: pointer;
+}
+
+.greenbg {
+    background: #3c763d;
+}
+
+.mrR {
+    margin: 0 10px 0 0px;
+}

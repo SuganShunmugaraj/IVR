@@ -1,0 +1,41 @@
+<div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 billhist-base ivr-base nopadd">
+    <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 billhist-generatebill text-right nopadd">
+        <h2 class="main-title">User Lists</h2>
+    </div>
+    <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 searchbar-container nopadd">
+        <input type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" class="searchbar" placeholder="Search">
+        <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 billhist-generatebill text-right nopadd">
+            <a routerLink="/admin/users/account" class="themebtn1"><span class="plus-icon-bill">+</span>CREATE USER</a>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 billhist-generatebill text-right nopadd">
+            <div class="theme-table">
+                <p-table #dt class="table table-striped" [columns]="cols" [value]="dataSource" [paginator]="true" [rows]="10" [totalRecords]="totalRecords">
+                    <ng-template pTemplate="header" let-columns>
+                        <tr>
+                            <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                                {{col.header}}
+                            </th>
+                            <th class="action-width">
+                                Action
+                            </th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-rowData let-columns="columns">
+                        <tr>
+                            <td>{{rowData.companyName}}</td>
+                            <td><img class="imglogo" src="{{rowData.companyLogo}}"></td>
+
+                            <td>{{rowData.createdAt | date :'dd.MM.yyyy'}}</td>
+                            <td>{{rowData.name}}</td>
+                            <td>{{rowData.email}}</td>
+                            <td>{{rowData.phone}}</td>
+                            <td>
+                                <p> <a routerLink="/admin/users/ivr/{{rowData._id}}" class="custom-red">More</a></p>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+.modal {
+    opacity: 1;
+}
+
+.login-modal .modal-dialog {
+    width: 1030px;
+    td {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+.modal-body {
+    position: relative;
+    padding: 15px;
+    min-height: 300px;
+}
+
+.mdi.mdi-close {
+    float: right;
+    color: #fff;
+    font-size: 50px;
+    margin: 0 20px 0 0;
+    position: fixed;
+    right: 20px;
+}
+
+pre {
+    background: none !important;
+    border: none !important;
+}
+
+.text-info.disabled {
+    opacity: .3;
+}
